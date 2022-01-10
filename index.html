@@ -7,21 +7,33 @@
   <script src="https://unpkg.com/react-dom@17.0.2/umd/react-dom.production.min.js"></script>
   <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
   <script type="text/babel">
-    const root = document.getElementById("root");
+    function Btn({ text, big }) {
+      return (
+        <button
+          style={{
+            backgroundColor: "tomato",
+            color: "white",
+            padding: "10px 20px",
+            border: 0,
+            borderRadius: 10,
+            fontSize: big ? 28 : 16,
+          }}
+        >
+          {text}
+        </button>
+      );
+    }
 
     function App() {
-      const [counter, setCounter] = React.useState(0);
-      const onClick = () => {
-        setCounter((cur) => cur + 1);
-      };
       return (
         <div>
-          <h3>Total clicks: {counter}</h3>
-          <button onClick={onClick}>Click me</button>
+          <Btn text="Save" big={true} />
+          <Btn text="Cancel" />
         </div>
       );
     }
 
+    const root = document.getElementById("root");
     ReactDOM.render(<App />, root);
   </script>
 </html>
